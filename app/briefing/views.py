@@ -2,8 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.response import Response
 from .models import Briefing, Retailer, Vendor, Category
-from .serializers import VendorSerializer, CategorySerializer
-
+from .serializers import VendorSerializer, CategorySerializer, RetailerSerializer
 
 class VendorListCreate(generics.ListCreateAPIView):
     queryset = Vendor.objects.all()
@@ -20,3 +19,11 @@ class CategoryListCreate(generics.ListCreateAPIView):
 class CategoryRetrieveUpdateDelte(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+class RetailerListCreate(generics.ListCreateAPIView):
+    queryset = Retailer.objects.all()
+    serializer_class = RetailerSerializer
+
+class RetailerRetrieveUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Retailer.objects.all()
+    serializer_class = RetailerSerializer
